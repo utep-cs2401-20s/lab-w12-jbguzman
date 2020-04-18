@@ -81,14 +81,17 @@ class myBinarySearchTreeNode{
       if (myValue == search) {
           return 0;
       } else if (search < myValue) {
-          return left.depth(search) + 1;
+          if(left != null) {
+              return left.depth(search) + 1;
+          }
+      } else if (search > myValue){
+          if(right != null) {
+              return right.depth(search) + 1;
+          }
       } else {
-          return right.depth(search) + 1;
+          return -1;
       }
-      //return -1;
-
   }
-
 
   // Utility function included so you can debug your solution. 
   public void print() { print(""); }

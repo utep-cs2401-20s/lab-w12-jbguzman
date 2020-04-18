@@ -1,17 +1,17 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-//all tests past
+
 public class myBinarySearchTreeNodeTester {
 
     @Test
-    public void Test1(){ //testing if size method works
+    public void Test1(){ //testing if size method works and it passed
         int[] array = {2, 1, 3};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
         assertEquals(3, tree.size());
     }
 
     @Test
-    public void Test2(){//testing if height method works
+    public void Test2(){//testing if height method works and it passed
         int[] array = {9, 3, 5, 22, 34, 1};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
         assertEquals(2, tree.height());
@@ -19,9 +19,11 @@ public class myBinarySearchTreeNodeTester {
 
     @Test
     public void Test3(){ //testing if depth method works
-        int[] array = {7, 11, 2, 8, 5, 42};
+        int[] array = {7, 11, 2, 8, 5, 42, 30};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
-        assertEquals(2, tree.depth(8));
+        assertEquals(2, tree.depth(8)); //pass
+        assertEquals(1, tree.depth(2)); //pass
+        assertEquals(-1, tree.depth(100)); //won't pass
     }
 
     @Test
