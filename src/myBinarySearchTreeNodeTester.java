@@ -27,13 +27,13 @@ public class myBinarySearchTreeNodeTester {
     }
 
     @Test
-   public void Test4(){ //testing if insert method works and inserts correctly
+   public void Test4(){ //testing if insert method works and inserts correctly and passes
         int[] array = {5, 1, 10, 13, 99, 4};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
         tree.insert(2);
     }
     @Test
-    public void Test5(){ //testing if insert method does not insert a value already in tree
+    public void Test5(){ //testing if insert method does not insert a value already in tree and passes
         int[] array = {5, 1, 10, 13, 99, 4};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
         tree.insert(10);
