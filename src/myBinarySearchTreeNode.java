@@ -1,3 +1,5 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class myBinarySearchTreeNode{
   int myValue;
   myBinarySearchTreeNode left;
@@ -54,6 +56,7 @@ class myBinarySearchTreeNode{
   public int height(){
      int leftHeight = 0;
      int rightHeight = 0;
+
      if(left != null){
        leftHeight = left.height();
      }
@@ -62,7 +65,7 @@ class myBinarySearchTreeNode{
      }
 
      if(leftHeight > rightHeight){
-       return leftHeight + 1;
+         return leftHeight + 1;
      }
      else if(leftHeight < rightHeight){
        return rightHeight + 1;
@@ -80,17 +83,14 @@ class myBinarySearchTreeNode{
       // (i.e. the number of the recursie calls).
       if (myValue == search) {
           return 0;
-      } else if (search < myValue) {
-          if(left != null) {
+      }
+      if (left != null && search < myValue) {
               return left.depth(search) + 1;
           }
-      } else if (search > myValue){
-          if(right != null) {
+      if (right != null && search > myValue ){
               return right.depth(search) + 1;
-          }
-      } else {
-          return -1;
       }
+      return -1;
   }
 
   // Utility function included so you can debug your solution. 
