@@ -22,7 +22,7 @@ public class myBinarySearchTreeNodeTester {
     public void Test2(){//testing if height method works and it passed
         int[] array1 = {9, 3, 22, 34, 5, 1};
         myBinarySearchTreeNode tree1 = new myBinarySearchTreeNode(array1);
-        assertEquals(2, tree1.height()); //won't pass, not sure why
+        assertEquals(2, tree1.height()); //pass
 
         int[] array2 = {1, 2, 3, 4, 5, 6};
         myBinarySearchTreeNode tree2 = new myBinarySearchTreeNode(array2);

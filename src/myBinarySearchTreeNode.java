@@ -56,21 +56,13 @@ class myBinarySearchTreeNode{
      int rightHeight = 0; //right height starts at 0
 
      if(left != null){ //if left exists
-       leftHeight = left.height(); //recursively increment
+       leftHeight = left.height() + 1; //recursively increment
      }
      if(right != null){ //if right exists
-       rightHeight = right.height(); //recursively increment
+       rightHeight = right.height() + 1; //recursively increment
      }
 
-      if(leftHeight > rightHeight){ //if left is larger than right
-          return leftHeight + 1; //return left height plus root
-      }
-      else if (leftHeight < rightHeight) { //if right is larger than left
-          return rightHeight + 1; //return right height plus root
-      }
-      else{
-          return 0; //if just root
-      }
+     return Math.max(leftHeight, rightHeight); //return max height
   }
   
   public int depth(int search) {
