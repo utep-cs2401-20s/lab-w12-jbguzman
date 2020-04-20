@@ -4,91 +4,86 @@ class myBinarySearchTreeNode{
   myBinarySearchTreeNode right;
     
   myBinarySearchTreeNode(int inValue){ // created a new node with empty child pointers
-    this.myValue = inValue;
-    this.left = null;
-    this.right = null;
+    this.myValue = inValue; //set myValue to inValue
+    this.left = null; //set left to null
+    this.right = null; //set right to null
   }
   
   myBinarySearchTreeNode(int[] A) {
       // creates a new Binary Search Tree rooted at the first value in the array
       /// by inserting elements into the tree in the order they are given in A.
-     myValue = A[0];
-      if (A.length > 1) {
-          for (int i = 1; i < A.length; i++) {
-              insert(A[i]);
+     myValue = A[0]; //root not set to A at index 0
+      if (A.length > 1) { //if A is larger than 1, build tree
+          for (int i = 1; i < A.length; i++) { //for loop to traverse array
+              insert(A[i]); //start inserting into tree the values in array
           }
       }
   }
 
   public void insert(int inValue){
-   if(inValue < myValue) {
-      if (left == null) {
-        left = new myBinarySearchTreeNode(inValue);
+   if(inValue < myValue) { //if value is smaller than root, insert left
+      if (left == null) { //if left does not exist create new node
+        left = new myBinarySearchTreeNode(inValue); //creating node
       } else {
-        left.insert(inValue);
+        left.insert(inValue); //insert value
       }
     }
-    else{
-      if (right == null) {
-        right = new myBinarySearchTreeNode(inValue);
+    else{ //if value is larger than root, insert right
+      if (right == null) { //if right does not exist create new node
+        right = new myBinarySearchTreeNode(inValue); //creating node
       } else {
-        right.insert(inValue);
+        right.insert(inValue); //insert value
       }
     }
-      if(inValue == myValue){
-          System.out.print("Error: No duplicates allowed!");
+      if(inValue == myValue){ //if value and root are the same
+          System.out.print("Error: No duplicates allowed!"); //cannot insert because BST don't have duplicates
       }
   }
 
   public int size(){
-    int sum = 1;
-    if(left != null){
-      sum += left.size();
+    int sum = 1; //count root
+    if(left != null){ //if root has children on left side
+      sum += left.size(); //recursively increment
     }
-    if(right != null){
-      sum += right.size();
+    if(right != null){ //if root has children on right side
+      sum += right.size(); //recursively increment
     }
-    return sum;
+    return sum; //return sum
   }
   
   public int height(){
-     int leftHeight = 0;
-     int rightHeight = 0;
+     int leftHeight = 0; //left height starts at 0
+     int rightHeight = 0; //right height starts at 0
 
-     if(left != null){
-       leftHeight = left.height();
+     if(left != null){ //if left exists
+       leftHeight = left.height(); //recursively increment
      }
-     if(right != null){
-       rightHeight = right.height();
+     if(right != null){ //if right exists
+       rightHeight = right.height(); //recursively increment
      }
 
-     if(leftHeight > rightHeight){
-         return leftHeight + 1;
-     }
-     else if(leftHeight < rightHeight){
-       return rightHeight + 1;
-     }
-     else{
-       return -1;
-     }
+      if(leftHeight > rightHeight){ //if left is larger than right
+          return leftHeight + 1; //return left height plus root
+      }
+      else if (leftHeight < rightHeight) { //if right is larger than left
+          return rightHeight + 1; //return right height plus root
+      }
+      else{
+          return 0; //if just root
+      }
   }
   
   public int depth(int search) {
-      // This method recursively calculates the depth of a given search value.
-      // If the given value is not in the tree, this method returns -1.
-      // Note that if the tree is a proper BST, this method should complete in O(log n) time.
-      // Additionally, remember that the depth is the number of nodes on the path from a node to the root
-      // (i.e. the number of the recursie calls).
-      if (myValue == search) {
-          return 0;
+      if (myValue == search) { //if the value looking for equals the value of the root
+          return 0; //root depth is 0
       }
-      if (left != null && search < myValue) {
-              return left.depth(search) + 1;
+      if (left != null && search < myValue) { //if left exists and value looking for is less than root
+              return left.depth(search) + 1; //recursively check depth of value and add root
           }
-      if (right != null && search > myValue ){
-              return right.depth(search) + 1;
+      if (right != null && search > myValue ){ //if right exists and value looking for is greater than root
+              return right.depth(search) + 1; //recursively check depth of value and add root
       }
-      return -1;
+      return -1; //not found return 1
   }
 
   // Utility function included so you can debug your solution. 
