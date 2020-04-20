@@ -20,17 +20,21 @@ public class myBinarySearchTreeNodeTester {
 
     @Test
     public void Test2(){//testing if height method works and it passed
-        int[] array1 = {9, 3, 22, 34, 5, 1};
+        int[] array1 = {9, 3, 22, 34, 5, 1, 2}; //right is greater than left height
         myBinarySearchTreeNode tree1 = new myBinarySearchTreeNode(array1);
-        assertEquals(2, tree1.height()); //pass
+        assertEquals(3, tree1.height()); //pass
 
-        int[] array2 = {1, 2, 3, 4, 5, 6};
+        int[] array2 = {1, 2, 3, 4, 5, 6}; //nodes all to the left of tree
         myBinarySearchTreeNode tree2 = new myBinarySearchTreeNode(array2);
         assertEquals(5, tree2.height()); //pass
 
-        int[] array3 = {100, 50, 200};
+        int[] array3 = {100, 50, 200}; //left and right height equal
         myBinarySearchTreeNode tree3 = new myBinarySearchTreeNode(array3);
         assertEquals(1, tree3.height()); //pass
+
+        int[] array4 = {1}; //root only
+        myBinarySearchTreeNode tree4 = new myBinarySearchTreeNode(array4);
+        assertEquals(0, tree4.height()); //pass
     }
 
     @Test
@@ -48,14 +52,14 @@ public class myBinarySearchTreeNodeTester {
    public void Test4(){ //testing if insert method works and inserts correctly and passes
         int[] array = {5, 1, 10, 13, 99, 4};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
-        tree.insert(2); //pass
+        tree.insert(2); //pass; inserting a value not already in tree
         //tried doing an assertEquals on an expected array but couldn't get it to work
     }
     @Test
     public void Test5(){ //testing if insert method does not insert a value already in tree and passes
         int[] array = {5, 1, 10, 13, 99, 4};
         myBinarySearchTreeNode tree = new myBinarySearchTreeNode(array);
-        tree.insert(10); //pass
+        tree.insert(10); //pass; inserting a value that is in tree already
         //tried doing an assertEquals on an expected array after insert but couldn't get it to work
     }
 }

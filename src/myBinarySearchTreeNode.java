@@ -61,21 +61,21 @@ class myBinarySearchTreeNode{
      if(right != null){ //if right exists
        rightHeight = right.height() + 1; //recursively increment
      }
-
+     
      return Math.max(leftHeight, rightHeight); //return max height
   }
   
   public int depth(int search) {
-      if (myValue == search) { //if the value looking for equals the value of the root
+      if (myValue == search) { //if the value searching for equals the value of the root
           return 0; //root depth is 0
       }
-      if (left != null && search < myValue) { //if left exists and value looking for is less than root
+      if (left != null && search < myValue) { //if left exists and value searching for is less than root
               return left.depth(search) + 1; //recursively check depth of value and add root
           }
-      if (right != null && search > myValue ){ //if right exists and value looking for is greater than root
+      if (right != null && search > myValue ){ //if right exists and value searching for is greater than root
               return right.depth(search) + 1; //recursively check depth of value and add root
       }
-      return -1; //not found return 1
+      return -1; //not found return -1
   }
 
   // Utility function included so you can debug your solution. 
@@ -88,4 +88,4 @@ class myBinarySearchTreeNode{
     if(right != null) right.print(prefix + "\u2514 ");
   }
   
-} 
+}
